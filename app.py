@@ -1,5 +1,5 @@
 import openai
-import toml
+# import toml
 import streamlit as st
 
 
@@ -10,10 +10,11 @@ def show_messages(text):
     text.text_area("Messages", value=str("\n".join(messages_str)), height=400)
 
 
-with open("secrets.toml", "r") as f:
-    config = toml.load(f)
+# with open("secrets.toml", "r") as f:
+#     config = toml.load(f)
+OPENAI_KEY = st.secrets["OPENAI_KEY"]
 
-openai.api_key = config["OPENAI_KEY"]
+openai.api_key = OPENAI_KEY
 BASE_PROMPT = [{"role": "system", "content": "You are a helpful assistant."}]
 
 if "messages" not in st.session_state:
