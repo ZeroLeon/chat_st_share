@@ -45,7 +45,7 @@ if st.button("Send",type="primary"):
     with st.spinner("Generating response..."):
         st.session_state["messages"] += [{"role": "user", "content": prompt}]
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-0301", messages=st.session_state["messages"]
+            model="gpt-3.5-turbo-16k", messages=st.session_state["messages"]
         )
         message_response = response["choices"][0]["message"]["content"]
         role_response = response["choices"][0]["message"]["role"]
