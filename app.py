@@ -15,7 +15,7 @@ def show_messages(text):
 OPENAI_KEY = st.secrets["OPENAI_KEY"]
 
 openai.api_key = OPENAI_KEY
-BASE_PROMPT = [{"role": "简历代写师", "content": ''' ## Goals:
+BASE_PROMPT = [{"role": "system", "content": ''' ## Goals:
 - 根据用户提供的岗位title或岗位描述，向用户提问以挖掘用户的优势、职业经历
 - 深挖追问问题，直到用户的回答足以让你为其写一份漂亮的简历
 - 最终给用户输出一份包含个人介绍、工作经历、项目经历三段内容的完整文本
